@@ -1,3 +1,6 @@
+import Nav from "../components/Nav";
+import Reveal from "../components/Reveal";
+
 const PROFILE = {
   name: "Karthikeya Gadadhasu",
   role: "Associate PM · Marketing Strategy · Growth · D2C",
@@ -127,24 +130,6 @@ const SKILLS = [
   { icon: "🛠️", title: "Tools", tags: ["Notion", "Jira", "Shopify", "Google Analytics (GA4)", "Meta Ads Manager", "Figma"] },
 ];
 
-function Nav() {
-  return (
-    <header className="nav">
-      <div className="nav-inner">
-        <span className="nav-brand">Karthikeya</span>
-        <nav className="nav-links">
-          <a href="#work">Work</a>
-          <a href="#case-studies">Case Studies</a>
-          <a href="#brands">Brands</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-          <a className="nav-cta" href="resume.pdf" download>Download Résumé</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
 function Hero() {
   return (
     <section className="hero">
@@ -176,10 +161,10 @@ function Metrics() {
       <div className="wrap">
         <div className="metrics">
           {METRICS.map((m) => (
-            <div className="metric" key={m.lbl}>
+            <Reveal className="metric" key={m.lbl} delay={(METRICS.indexOf(m) % 4) * 60}>
               <span className="num">{m.num}</span>
               <span className="lbl">{m.lbl}</span>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -191,15 +176,15 @@ function About() {
   return (
     <section className="section section-band" id="about">
       <div className="wrap">
-        <div className="section-head">
+        <Reveal className="section-head">
           <div className="kicker">About</div>
           <h2>Product manager who runs growth like a founder.</h2>
-        </div>
+        </Reveal>
         <div className="about-grid">
-          <div className="about-photo">
+          <Reveal className="about-photo">
             <img src="images/about.jpg" alt="Karthikeya at work" width={1400} height={935} />
-          </div>
-          <div className="about-copy">
+          </Reveal>
+          <Reveal className="about-copy" delay={120}>
             <h3>I sit where product, marketing and P&amp;L meet.</h3>
             <p>
               I'm an <span className="accent">Associate Product Manager</span> who has spent the last two years
@@ -218,7 +203,7 @@ function About() {
               <div className="about-fact"><b>Education</b><span>B.Tech Computer Science, MLRIT · Best Entrepreneurial Idea Award 2023</span></div>
               <div className="about-fact"><b>Currently</b><span>Growth Lead at HILO DESIGN · Head of Strategy at ORAMAS</span></div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -229,14 +214,14 @@ function Experience() {
   return (
     <section className="section" id="work">
       <div className="wrap">
-        <div className="section-head">
+        <Reveal className="section-head">
           <div className="kicker">Experience</div>
           <h2>Where I've shipped and grown</h2>
           <p>Every role owned end-to-end — product, marketing and the numbers that prove it.</p>
-        </div>
+        </Reveal>
         <div className="timeline">
           {JOBS.map((j) => (
-            <article className="job" key={j.org + j.dates}>
+            <Reveal className="job" key={j.org + j.dates}>
               <div className="job-head">
                 <h3>{j.role}</h3>
                 <span className="job-dates">{j.dates}</span>
@@ -246,7 +231,7 @@ function Experience() {
               </div>
               <p className="job-tagline">{j.tagline}</p>
               <ul>{j.points.map((p, i) => <li key={i}>{p}</li>)}</ul>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -258,14 +243,14 @@ function CaseStudies() {
   return (
     <section className="section section-band" id="case-studies">
       <div className="wrap">
-        <div className="section-head">
+        <Reveal className="section-head">
           <div className="kicker">Case Studies</div>
           <h2>Proof, not promises</h2>
           <p>Three bets that paid off — the problem, the approach, and the impact in numbers.</p>
-        </div>
+        </Reveal>
         <div className="cases">
-          {CASES.map((c) => (
-            <article className="case" key={c.title}>
+          {CASES.map((c, ci) => (
+            <Reveal className="case" key={c.title} delay={ci * 90}>
               <div className="case-emoji">{c.emoji}</div>
               <div>
                 <div className="case-org">{c.org}</div>
@@ -282,7 +267,7 @@ function CaseStudies() {
               <div className="case-impact">
                 {c.impact.map((im) => <span className="impact-chip" key={im}>{im}</span>)}
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -294,20 +279,20 @@ function Brands() {
   return (
     <section className="section" id="brands">
       <div className="wrap">
-        <div className="section-head">
+        <Reveal className="section-head">
           <div className="kicker">Brands</div>
           <h2>Brands I've built and grown</h2>
           <p>From sub-brands I launched from zero, to an eleven-brand consulting portfolio where I was the sole strategic partner.</p>
-        </div>
-        {BRAND_GROUPS.map((g) => (
-          <div className="brand-group" key={g.label}>
+        </Reveal>
+        {BRAND_GROUPS.map((g, gi) => (
+          <Reveal className="brand-group" key={g.label} delay={gi * 80}>
             <div className="bg-label">{g.label}</div>
             <div className="brand-wall">
               {g.items.map((b) => (
                 <span className={`brand-chip${g.highlight ? " highlight" : ""}`} key={b}>{b}</span>
               ))}
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -318,16 +303,16 @@ function Skills() {
   return (
     <section className="section section-band" id="skills">
       <div className="wrap">
-        <div className="section-head">
+        <Reveal className="section-head">
           <div className="kicker">Skills & Tools</div>
           <h2>What I bring to the table</h2>
-        </div>
+        </Reveal>
         <div className="skills-grid">
-          {SKILLS.map((s) => (
-            <div className="skill-card" key={s.title}>
+          {SKILLS.map((s, si) => (
+            <Reveal className="skill-card" key={s.title} delay={si * 70}>
               <h3><span>{s.icon}</span>{s.title}</h3>
               <div className="tags">{s.tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -339,7 +324,7 @@ function Contact() {
   return (
     <section className="section" id="contact">
       <div className="wrap">
-        <div className="contact-cta">
+        <Reveal className="contact-cta">
           <h2>Let's build something that compounds.</h2>
           <p>
             Open to Product Management and Growth roles — and to building with founders who want
@@ -354,7 +339,7 @@ function Contact() {
           <div>
             <a className="btn btn-primary" href="resume.pdf" download>Download résumé (PDF)</a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -365,7 +350,9 @@ function Footer() {
     <footer className="footer">
       <div className="wrap footer-inner">
         <span>© {new Date().getFullYear()} {PROFILE.name} · Product & Growth</span>
-        <span>Designed in Hyderabad · Built with Next.js</span>
+        <span>
+          <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a> · Hyderabad, India
+        </span>
       </div>
     </footer>
   );
