@@ -133,19 +133,26 @@ const SKILLS = [
 function Hero() {
   return (
     <section className="hero">
-      <div className="wrap">
-        <span className="eyebrow">Associate Product Manager · Hyderabad, India</span>
-        <h1>
-          I build <span className="grad">0→1 products</span> and growth systems that turn revenue into a habit.
-        </h1>
-        <p className="hero-sub">
-          <strong>Product thinking + growth execution in one person.</strong> 2+ years shipping products and
-          marketing strategies across D2C, healthcare and entertainment — from Meta Ads funnels to a
-          <strong> ₹1Cr+ online revenue</strong> business and <strong>130M+ content views</strong>.
-        </p>
-        <div className="hero-ctas">
-          <a className="btn btn-primary" href="#work">View my work</a>
-          <a className="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+      <div className="wrap hero-grid">
+        <div className="hero-copy">
+          <span className="eyebrow">Associate Product Manager · Hyderabad, India</span>
+          <h1>
+            I build <span className="grad">0→1 products</span> and growth systems that turn revenue into a habit.
+          </h1>
+          <p className="hero-sub">
+            <strong>Product thinking + growth execution in one person.</strong> 2+ years shipping products and
+            marketing strategies across D2C, healthcare and entertainment — from Meta Ads funnels to a
+            <strong> ₹1Cr+ online revenue</strong> business and <strong>130M+ content views</strong>.
+          </p>
+          <div className="hero-ctas">
+            <a className="btn btn-primary" href="#work">View my work</a>
+            <a className="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+          </div>
+          <div className="hero-contact">
+            <a href={`mailto:${PROFILE.email}`}>✉️ {PROFILE.email}</a>
+            <a href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}>📞 {PROFILE.phone}</a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">💼 LinkedIn</a>
+          </div>
         </div>
         <div className="hero-photo">
           <img src="images/hero.jpg" alt="Karthikeya Gadadhasu" width={666} height={1000} />
