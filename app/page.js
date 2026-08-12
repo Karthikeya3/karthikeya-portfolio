@@ -8,7 +8,6 @@ const PROFILE = {
 };
 
 const METRICS = [
-  { num: "2+ yrs", lbl: "building 0→1 products" },
   { num: "₹10L+", lbl: "MRR — grown from ₹0" },
   { num: "₹1Cr+", lbl: "online revenue scaled" },
   { num: "4×", lbl: "sales growth per event" },
@@ -16,12 +15,13 @@ const METRICS = [
   { num: "7+", lbl: "D2C brands, end-to-end" },
   { num: "11", lbl: "consulting brands" },
   { num: "30+", lbl: "team scaled to" },
+  { num: "2+ yrs", lbl: "building 0→1 products" },
 ];
 
 const JOBS = [
   {
     role: "Associate Product Manager & Growth Lead",
-    org: "HILO DESIGN — Menswear D2C",
+    org: "HILO DESIGN · Menswear D2C",
     place: "Hyderabad",
     dates: "Jul 2024 – Present",
     tagline: "Owned product, growth and revenue for a menswear brand — end to end.",
@@ -35,7 +35,7 @@ const JOBS = [
   },
   {
     role: "Associate Product Manager & Head of Strategy",
-    org: "ORAMAS — Product & Growth Agency",
+    org: "ORAMAS · Product & Growth Agency",
     place: "Hyderabad",
     dates: "2024 – Present",
     tagline: "Strategy, delivery and growth across an agency's whole client book.",
@@ -49,7 +49,7 @@ const JOBS = [
   },
   {
     role: "Associate Product Manager & Brand Strategist",
-    org: "CHIRTALAYAM — Film Marketing & Tech",
+    org: "CHIRTALAYAM · Film Marketing & Tech",
     place: "Hyderabad",
     dates: "2024 – Present",
     tagline: "Marketing systems for Tollywood films and high-profile personal brands.",
@@ -62,7 +62,7 @@ const JOBS = [
   },
   {
     role: "Associate Product Manager & Strategy Consultant",
-    org: "SMILE GUARD — Dental-Tech Platform",
+    org: "SMILE GUARD · Dental-Tech Platform",
     place: "Hyderabad",
     dates: "Nov 2025 – Mar 2026",
     tagline: "Repositioning a dental-tech platform around its patients and doctors.",
@@ -131,7 +131,7 @@ function Nav() {
   return (
     <header className="nav">
       <div className="nav-inner">
-        <span className="nav-brand">Karthikeya<em>.</em></span>
+        <span className="nav-brand">Karthikeya</span>
         <nav className="nav-links">
           <a href="#work">Work</a>
           <a href="#case-studies">Case Studies</a>
@@ -148,32 +148,23 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero">
-      <div className="wrap hero-grid">
-        <div>
-          <span className="eyebrow">Associate Product Manager · Hyderabad, India</span>
-          <h1>
-            I build <span className="grad">0→1 products</span> and growth systems that turn revenue into a habit.
-          </h1>
-          <p className="hero-sub">
-            <strong>Product thinking + growth execution in one person.</strong> 2+ years shipping products and
-            marketing strategies across D2C, healthcare and entertainment — from Meta Ads funnels to a
-            <strong> ₹1Cr+ online revenue</strong> business and <strong>130M+ content views</strong>.
-          </p>
-          <div className="hero-ctas">
-            <a className="btn btn-primary" href="#work">View my work ↓</a>
-            <a className="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
-          </div>
+      <div className="wrap">
+        <span className="eyebrow">Associate Product Manager · Hyderabad, India</span>
+        <h1>
+          I build <span className="grad">0→1 products</span> and growth systems that turn revenue into a habit.
+        </h1>
+        <p className="hero-sub">
+          <strong>Product thinking + growth execution in one person.</strong> 2+ years shipping products and
+          marketing strategies across D2C, healthcare and entertainment — from Meta Ads funnels to a
+          <strong> ₹1Cr+ online revenue</strong> business and <strong>130M+ content views</strong>.
+        </p>
+        <div className="hero-ctas">
+          <a className="btn btn-primary" href="#work">View my work</a>
+          <a className="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
         </div>
-
-        <aside className="hero-card">
-          <div className="avatar">K</div>
-          <h3>{PROFILE.name}</h3>
-          <div className="role">{PROFILE.role}</div>
-          <div className="line"><span>📍</span> {PROFILE.location}</div>
-          <div className="line"><span>📞</span> {PROFILE.phone}</div>
-          <div className="line"><span>✉️</span> <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></div>
-          <div className="line"><span>💼</span> <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">linkedin.com/in/karthikeya-gadadhasu</a></div>
-        </aside>
+        <div className="hero-photo">
+          <img src="images/hero.jpg" alt="Karthikeya Gadadhasu" width={666} height={1000} />
+        </div>
       </div>
     </section>
   );
@@ -181,14 +172,54 @@ function Hero() {
 
 function Metrics() {
   return (
-    <section className="wrap" style={{ paddingBottom: 8 }}>
-      <div className="metrics">
-        {METRICS.map((m) => (
-          <div className="metric" key={m.lbl}>
-            <span className="num">{m.num}</span>
-            <span className="lbl">{m.lbl}</span>
+    <section className="section" style={{ paddingTop: 72, paddingBottom: 96 }}>
+      <div className="wrap">
+        <div className="metrics">
+          {METRICS.map((m) => (
+            <div className="metric" key={m.lbl}>
+              <span className="num">{m.num}</span>
+              <span className="lbl">{m.lbl}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section className="section section-band" id="about">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="kicker">About</div>
+          <h2>Product manager who runs growth like a founder.</h2>
+        </div>
+        <div className="about-grid">
+          <div className="about-photo">
+            <img src="images/about.jpg" alt="Karthikeya at work" width={1400} height={935} />
           </div>
-        ))}
+          <div className="about-copy">
+            <h3>I sit where product, marketing and P&amp;L meet.</h3>
+            <p>
+              I'm an <span className="accent">Associate Product Manager</span> who has spent the last two years
+              building 0→1 products and growth systems — and I own the numbers, not just the roadmap. From
+              architecting an internal ops platform at a menswear D2C brand to scaling an agency's MRR from
+              <strong> ₹0 to ₹10L+</strong>, I've built the full loop: strategy, product, marketing and delivery.
+            </p>
+            <p>
+              My work spans <strong>D2C, healthcare and entertainment</strong> — including a Tollywood actor's
+              brand that crossed <strong>130M+ views</strong>. I lead cross-functional teams, pitch to founders
+              weekly, and turn messy operations into repeatable systems.
+            </p>
+            <div className="about-facts">
+              <div className="about-fact"><b>Based in</b><span>Hyderabad, India</span></div>
+              <div className="about-fact"><b>Focus</b><span>0→1 products · Growth · D2C · Platforms</span></div>
+              <div className="about-fact"><b>Education</b><span>B.Tech Computer Science, MLRIT · Best Entrepreneurial Idea Award 2023</span></div>
+              <div className="about-fact"><b>Currently</b><span>Growth Lead at HILO DESIGN · Head of Strategy at ORAMAS</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -210,7 +241,7 @@ function Experience() {
                 <h3>{j.role}</h3>
                 <span className="job-dates">{j.dates}</span>
               </div>
-              <div className="job-head" style={{ marginBottom: 8 }}>
+              <div>
                 <span className="org">{j.org} · {j.place}</span>
               </div>
               <p className="job-tagline">{j.tagline}</p>
@@ -225,7 +256,7 @@ function Experience() {
 
 function CaseStudies() {
   return (
-    <section className="section section-alt" id="case-studies">
+    <section className="section section-band" id="case-studies">
       <div className="wrap">
         <div className="section-head">
           <div className="kicker">Case Studies</div>
@@ -235,26 +266,21 @@ function CaseStudies() {
         <div className="cases">
           {CASES.map((c) => (
             <article className="case" key={c.title}>
-              <div className="case-side">
-                <div className="case-emoji">{c.emoji}</div>
-                <h3>{c.title}</h3>
+              <div className="case-emoji">{c.emoji}</div>
+              <div>
                 <div className="case-org">{c.org}</div>
-                <div>{c.tags.map((t) => <span className="case-tag" key={t}>{t}</span>)}</div>
+                <h3>{c.title}</h3>
               </div>
-              <div className="case-body">
-                {c.blocks.map((b, i) => (
-                  <div className="case-block" key={i}>
-                    <span className="k">{b.k}</span>
-                    {b.text && <p>{b.text}</p>}
-                    {b.ul && <ul>{b.ul.map((li, j) => <li key={j}>{li}</li>)}</ul>}
-                  </div>
-                ))}
-                <div className="case-block">
-                  <span className="k">Impact</span>
-                  <div className="case-impact">
-                    {c.impact.map((im) => <span className="impact-chip" key={im}>{im}</span>)}
-                  </div>
+              <div className="case-tags">{c.tags.map((t) => <span className="case-tag" key={t}>{t}</span>)}</div>
+              {c.blocks.map((b, i) => (
+                <div className="case-block" key={i}>
+                  <span className="k">{b.k}</span>
+                  {b.text && <p>{b.text}</p>}
+                  {b.ul && <ul>{b.ul.map((li, j) => <li key={j}>{li}</li>)}</ul>}
                 </div>
+              ))}
+              <div className="case-impact">
+                {c.impact.map((im) => <span className="impact-chip" key={im}>{im}</span>)}
               </div>
             </article>
           ))}
@@ -290,7 +316,7 @@ function Brands() {
 
 function Skills() {
   return (
-    <section className="section section-alt" id="skills">
+    <section className="section section-band" id="skills">
       <div className="wrap">
         <div className="section-head">
           <div className="kicker">Skills & Tools</div>
@@ -339,7 +365,7 @@ function Footer() {
     <footer className="footer">
       <div className="wrap footer-inner">
         <span>© {new Date().getFullYear()} {PROFILE.name} · Product & Growth</span>
-        <span>Built with Next.js · Hyderabad, India</span>
+        <span>Designed in Hyderabad · Built with Next.js</span>
       </div>
     </footer>
   );
@@ -352,6 +378,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <Metrics />
+        <About />
         <Experience />
         <CaseStudies />
         <Brands />
